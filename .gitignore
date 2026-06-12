@@ -1,3 +1,4 @@
 node_modules/
 data/site-data.backup.json
 *.log
+_site-gh-pages/

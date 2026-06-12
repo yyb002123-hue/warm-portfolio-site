@@ -2,11 +2,13 @@ const state = {
   data: null
 };
 
-const fallbackImage = "/assets/hero.png";
+const fallbackImage = "assets/hero.png";
 
 function imageUrl(value) {
   const url = String(value || "").trim();
-  return url || fallbackImage;
+  if (!url) return fallbackImage;
+  if (/^(https?:|data:|blob:)/.test(url)) return url;
+  return url.replace(/^\//, "");
 }
 
 function setText(id, value) {
@@ -169,9 +171,9 @@ function bindMonthNav() {
 }
 
 async function loadSite() {
-  let response = await fetch("/api/site");
+  let response = await fetch("api/site");
   if (!response.ok) {
-    response = await fetch("/data/site-data.json");
+    response = await fetch("data/site-data.json");
   }
   if (!response.ok) throw new Error("Failed to load site data");
   state.data = await response.json();
