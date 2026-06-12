@@ -1,0 +1,260 @@
+{
+  "home": {
+    "siteTitle": "温室影像档案",
+    "subtitle": "每月主题回顾",
+    "heroTitle": "在缓慢的光里，整理影像与文字",
+    "heroText": "这里收录个人影像项目、散文式笔记与评论。页面先以样稿填充，之后可以在后台表格里替换为你的真实作品。",
+    "heroImage": "/assets/hero.png",
+    "footerNote": "记录作品、放映与正在形成的想法。"
+  },
+  "sidebarLinks": [
+    {
+      "title": "校友会介绍",
+      "href": "#month-5"
+    },
+    {
+      "title": "获奖记录",
+      "href": "#month-4"
+    },
+    {
+      "title": "放映与展览",
+      "href": "#month-3"
+    }
+  ],
+  "months": [
+    {
+      "id": "month-6",
+      "month": "6月",
+      "title": "迎夏记",
+      "intro": "用影像记录夏日之前的风、光线和缓慢靠近的热。",
+      "heroImage": "/assets/hero.png",
+      "galleryTitle": "当月影展",
+      "gallery": [
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png"
+      ],
+      "reviewTitle": "6月迎夏记 · 精彩回顾",
+      "features": [
+        {
+          "title": "夏日前奏",
+          "summary": "在明亮的午后里整理新的影像线索。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "窗边练习",
+          "summary": "光线经过窗帘时，日常也有了清晰的边缘。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "短片札记",
+          "summary": "把拍摄现场留下的碎片重新放回文字里。",
+          "cover": "/assets/hero.png"
+        }
+      ]
+    },
+    {
+      "id": "month-5",
+      "month": "5月",
+      "title": "玩手作",
+      "intro": "这个月我们走进手作世界，在校友会收获指尖的乐趣。",
+      "heroImage": "/assets/hero.png",
+      "galleryTitle": "当月影展",
+      "gallery": [
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png"
+      ],
+      "reviewTitle": "5月玩手作 · 精彩回顾",
+      "features": [
+        {
+          "title": "非遗手工",
+          "summary": "走近传统技艺，感受手造的耐心与传承。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "闲趣手工",
+          "summary": "慢下来，享受手作带来的治愈时光。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "户外手作",
+          "summary": "走出教室，把手作灵感带进自然。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "居家手作",
+          "summary": "在家也能创造美好，点亮日常生活。",
+          "cover": "/assets/hero.png"
+        }
+      ]
+    },
+    {
+      "id": "month-4",
+      "month": "4月",
+      "title": "去踏青",
+      "intro": "把镜头带到绿意里，记录一次轻盈的春日外出。",
+      "heroImage": "/assets/hero.png",
+      "galleryTitle": "当月影展",
+      "gallery": [
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png"
+      ],
+      "reviewTitle": "4月去踏青 · 精彩回顾",
+      "features": [
+        {
+          "title": "草地放映",
+          "summary": "在自然光里重新观看一段影像。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "春日采集",
+          "summary": "收集颜色、声音和路上的短句。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "同行记录",
+          "summary": "把同行者的步伐留在画面边缘。",
+          "cover": "/assets/hero.png"
+        }
+      ]
+    },
+    {
+      "id": "month-3",
+      "month": "3月",
+      "title": "寻春",
+      "intro": "春天刚刚到来，一些柔软的细节先出现在镜头里。",
+      "heroImage": "/assets/hero.png",
+      "galleryTitle": "当月影展",
+      "gallery": [
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png"
+      ],
+      "reviewTitle": "3月寻春 · 精彩回顾",
+      "features": [
+        {
+          "title": "春光练习",
+          "summary": "寻找变化最轻的时刻。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "影像笔记",
+          "summary": "从一张照片延伸出一段文字。",
+          "cover": "/assets/hero.png"
+        }
+      ]
+    },
+    {
+      "id": "month-2",
+      "month": "2月",
+      "title": "归档",
+      "intro": "在新一轮拍摄前，整理旧影像、文章和项目线索。",
+      "heroImage": "/assets/hero.png",
+      "galleryTitle": "当月影展",
+      "gallery": [
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png"
+      ],
+      "reviewTitle": "2月归档 · 精彩回顾",
+      "features": [
+        {
+          "title": "旧片整理",
+          "summary": "给旧素材重新编号、命名与备注。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "文字回看",
+          "summary": "把零散笔记整理成可以继续生长的文章。",
+          "cover": "/assets/hero.png"
+        }
+      ]
+    }
+  ],
+  "works": [
+    {
+      "id": "work-1",
+      "title": "潮湿的午后",
+      "category": "短片",
+      "year": "2026",
+      "summary": "一部关于旧屋、雨声和等待的短片。镜头停留在日常边缘，寻找时间慢下来之后的纹理。",
+      "cover": "/assets/hero.png",
+      "watchUrl": "https://example.com",
+      "featured": true
+    },
+    {
+      "id": "work-2",
+      "title": "被风吹动的房间",
+      "category": "影像随笔",
+      "year": "2025",
+      "summary": "从一间空房间开始，记录声音、布料和光线如何成为叙事的一部分。",
+      "cover": "/assets/hero.png",
+      "watchUrl": "https://example.com",
+      "featured": true
+    },
+    {
+      "id": "work-3",
+      "title": "给陌生人的信",
+      "category": "实验影像",
+      "year": "2025",
+      "summary": "由信件、旧照片和城市夜路组成的影像练习，关于距离与误读。",
+      "cover": "/assets/hero.png",
+      "watchUrl": "https://example.com",
+      "featured": false
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-1",
+      "title": "影像里的温度从哪里来",
+      "type": "影像笔记",
+      "date": "2026-05-18",
+      "excerpt": "不是所有温暖都来自色调。有时候它来自镜头停留的耐心，来自人物没有被催促的沉默。",
+      "cover": "/assets/hero.png",
+      "content": "这是一篇示例文章。你可以在后台把它改成自己的影像笔记、创作阐述或散文。"
+    },
+    {
+      "id": "article-2",
+      "title": "观看之后：关于一场放映的散记",
+      "type": "评论",
+      "date": "2026-04-29",
+      "excerpt": "走出放映厅时，最先留下来的不是情节，而是某个微弱的室内声响。",
+      "cover": "/assets/hero.png",
+      "content": "这里可以写影展观后感、影片评论或项目复盘。"
+    },
+    {
+      "id": "article-3",
+      "title": "把素材放回生活里",
+      "type": "散文",
+      "date": "2026-03-12",
+      "excerpt": "剪辑像是在桌面上重新摆放一段生活：留下、移走、等待某个位置变得准确。",
+      "cover": "/assets/hero.png",
+      "content": "文章正文可以很长，后台支持直接编辑。"
+    }
+  ]
+}

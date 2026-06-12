@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理 - 温室影像档案</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body class="admin-body">
+    <main class="admin-shell">
+      <header class="admin-header">
+        <div>
+          <p class="eyebrow">Content Manager</p>
+          <h1>后台管理</h1>
+        </div>
+        <div class="admin-actions">
+          <a class="button ghost" href="/">查看网站</a>
+          <button id="save-button" class="button primary" type="button">保存修改</button>
+        </div>
+      </header>
+
+      <section class="admin-panel">
+        <h2>首页内容</h2>
+        <div class="form-grid">
+          <label>网站名称<input id="home-siteTitle" type="text"></label>
+          <label>副标题<input id="home-subtitle" type="text"></label>
+          <label>首页大标题<input id="home-heroTitle" type="text"></label>
+          <label>页脚小字<input id="home-footerNote" type="text"></label>
+          <label class="wide">首页介绍<textarea id="home-heroText" rows="3"></textarea></label>
+          <label class="wide">首页图片地址<input id="home-heroImage" type="text"></label>
+          <label class="wide file-label">上传首页图片<input id="home-image-upload" type="file" accept="image/*"></label>
+        </div>
+      </section>
+
+      <section class="admin-panel">
+        <div class="table-heading">
+          <h2>影像作品</h2>
+          <button id="add-work" class="button ghost" type="button">新增作品</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>标题</th>
+                <th>类型</th>
+                <th>年份</th>
+                <th>简介</th>
+                <th>封面/上传</th>
+                <th>外部链接</th>
+                <th>精选</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="works-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-panel">
+        <div class="table-heading">
+          <h2>文章/随笔</h2>
+          <button id="add-article" class="button ghost" type="button">新增文章</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>标题</th>
+                <th>类型</th>
+                <th>日期</th>
+                <th>摘要</th>
+                <th>封面/上传</th>
+                <th>正文</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="articles-table"></tbody>
+          </table>
+        </div>
+      </section>
+      <p id="save-status" class="save-status" role="status"></p>
+    </main>
+    <script src="/admin.js"></script>
+  </body>
+</html>

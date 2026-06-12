@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>温室影像档案</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="#month-5">
+        <span id="site-title">温室影像档案</span>
+        <small id="site-subtitle">影像作品 / 文章 / 观看笔记</small>
+      </a>
+      <nav id="month-nav" class="month-nav" aria-label="月份目录"></nav>
+      <div class="sidebar-fixed">
+        <nav id="sidebar-links" class="sidebar-links" aria-label="补充信息"></nav>
+        <a class="admin-link" href="/admin.html">后台</a>
+        <p id="footer-note" class="sidebar-note">记录作品、放映与正在形成的想法。</p>
+      </div>
+    </aside>
+
+    <main id="month-content" class="site-main month-main"></main>
+
+    <dialog id="article-dialog" class="detail-dialog">
+      <button class="icon-button dialog-close" type="button" aria-label="关闭">×</button>
+      <img id="dialog-cover" src="/assets/hero.png" alt="">
+      <p id="dialog-meta" class="eyebrow"></p>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-content"></p>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
