@@ -10,15 +10,15 @@
   "sidebarLinks": [
     {
       "title": "校友会介绍",
-      "href": "#month-5"
+      "href": "alumni-intro.html"
+    },
+    {
+      "title": "校友风采",
+      "href": "alumni-members.html"
     },
     {
       "title": "获奖记录",
-      "href": "#month-4"
-    },
-    {
-      "title": "放映与展览",
-      "href": "#month-3"
+      "href": "awards.html"
     }
   ],
   "months": [
