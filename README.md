@@ -37,23 +37,15 @@ public/data/site-data.json
 
 ## 免费上线到 GitHub Pages
 
-这个项目已经准备好 GitHub Pages 自动发布流程。推送到 GitHub 的 `main` 分支后，GitHub Actions 会把 `public/` 文件夹发布成在线网站。
+当前仓库的线上网站通过 `gh-pages` 分支发布。日常开发先提交到 `main`，确认要上线后，再把 `public/` 文件夹发布到 `gh-pages` 分支。
 
-基本步骤：
-
-1. 在 GitHub 创建一个新仓库。
-2. 把本项目推送到新仓库的 `main` 分支。
-3. 进入仓库 `Settings` -> `Pages`。
-4. Source 选择 `GitHub Actions`。
-5. 等待 Actions 运行完成，Pages 页面会显示在线网址。
-
-之后如果本地后台改了内容，先运行：
+每次本地后台改了内容，先运行：
 
 ```powershell
 npm run sync:data
 ```
 
-再提交并推送到 GitHub，线上页面就会更新。
+再提交到 `main`，然后把 `public/` 发布到 `gh-pages`。GitHub Pages 会自动部署 `gh-pages` 分支，部署成功后线上页面就会更新。
 
 ## 修改内容
 
