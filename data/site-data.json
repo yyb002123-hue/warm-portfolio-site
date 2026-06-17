@@ -23,7 +23,7 @@
       "month": "6月",
       "title": "迎夏",
       "intro": "用影像记录夏日之前的风、光线和缓慢靠近的热。",
-      "heroImage": "/assets/hero.png",
+      "heroImage": "/assets/hero-month-6.jpg",
       "galleryTitle": "当月影展",
       "gallery": [
         "/assets/hero.png",
@@ -59,7 +59,7 @@
       "month": "5月",
       "title": "玩手作",
       "intro": "5月我们走进手作世界，在校友会收获指尖的乐趣。",
-      "heroImage": "/assets/hero.png",
+      "heroImage": "/assets/hero-month-5.jpg",
       "galleryTitle": "玩手作影展照片",
       "gallery": [
         "/assets/hero.png",
@@ -140,7 +140,7 @@
       "month": "4月",
       "title": "去踏青",
       "intro": "把镜头带到绿意里，记录一次轻盈的春日外出。",
-      "heroImage": "/assets/hero.png",
+      "heroImage": "/assets/hero-month-4.jpg",
       "galleryTitle": "当月影展",
       "gallery": [
         "/assets/hero.png",
@@ -176,7 +176,7 @@
       "month": "3月",
       "title": "寻春",
       "intro": "春天刚刚到来，一些柔软的细节先出现在镜头里。",
-      "heroImage": "/assets/hero.png",
+      "heroImage": "/assets/hero-month-3.jpg",
       "galleryTitle": "当月影展",
       "gallery": [
         "/assets/hero.png",
@@ -205,7 +205,7 @@
       "month": "2月",
       "title": "年味",
       "intro": "在热闹的团圆气息里，记录节日、家人和生活里的年味。",
-      "heroImage": "/assets/hero.png",
+      "heroImage": "/assets/hero-month-2.jpg",
       "galleryTitle": "当月影展",
       "gallery": [
         "/assets/hero.png",
