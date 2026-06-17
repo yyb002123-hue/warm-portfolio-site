@@ -84,6 +84,53 @@ function renderGallery(month) {
   return section;
 }
 
+function renderHandcraftInspiration(month) {
+  const section = createElement("section", "month-block handcraft-block");
+  const heading = createElement("div", "month-heading handcraft-heading");
+  heading.append(
+    createElement("p", "eyebrow", "Life Inspiration"),
+    createElement("h2", "", month.lifeTitle || "生活灵感")
+  );
+
+  const rail = createElement("div", "life-card-rail");
+  const cards = month.lifeCards && month.lifeCards.length ? month.lifeCards : month.features || [];
+
+  cards.forEach((card) => {
+    const article = createElement("article", "life-card");
+    article.appendChild(createImage(card.cover || month.heroImage, card.title || "生活灵感", "life-card-image"));
+
+    const copy = createElement("div", "life-card-copy");
+    copy.append(
+      createElement("span", "", card.label || `打卡爱生活的100件事之${card.title || ""}`),
+      createElement("h3", "", card.title || "未命名手作"),
+      createElement("p", "", card.summary || "")
+    );
+    article.appendChild(copy);
+    rail.appendChild(article);
+  });
+
+  section.append(heading, rail);
+  return section;
+}
+
+function renderPhotoDiary(month) {
+  const section = createElement("section", "month-block handcraft-block");
+  const heading = createElement("div", "month-heading handcraft-heading");
+  heading.append(
+    createElement("p", "eyebrow", "Photo Diary"),
+    createElement("h2", "", month.diaryTitle || "好好生活照片日记")
+  );
+
+  const grid = createElement("div", "photo-diary-grid");
+  const images = month.diary && month.diary.length ? month.diary : (month.gallery || []).slice(0, 6);
+  images.forEach((src, index) => {
+    grid.appendChild(createImage(src, `${month.diaryTitle || "照片日记"} ${index + 1}`, "photo-diary-image"));
+  });
+
+  section.append(heading, grid);
+  return section;
+}
+
 function renderFeatureShowcase(month) {
   const section = createElement("section", "month-block");
   const heading = createElement("div", "month-heading");
@@ -135,6 +182,8 @@ function renderMonths(months) {
   months.forEach((month) => {
     const section = createElement("section", "month-section");
     section.id = month.id;
+    const isHandcraftMonth = month.id === "month-5";
+    if (isHandcraftMonth) section.classList.add("handcraft-month");
 
     const hero = createElement("div", "month-hero");
     hero.appendChild(createImage(month.heroImage, `${month.month || ""}${month.title || ""}`, "month-hero-image"));
@@ -146,7 +195,11 @@ function renderMonths(months) {
     );
     hero.appendChild(heroCopy);
 
-    section.append(hero, renderGallery(month), renderFeatureShowcase(month));
+    if (isHandcraftMonth) {
+      section.append(hero, renderHandcraftInspiration(month), renderGallery(month), renderPhotoDiary(month));
+    } else {
+      section.append(hero, renderGallery(month), renderFeatureShowcase(month));
+    }
     main.appendChild(section);
   });
 }

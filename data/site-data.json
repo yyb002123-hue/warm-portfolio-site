@@ -15,17 +15,13 @@
     {
       "title": "校友风采",
       "href": "alumni-members.html"
-    },
-    {
-      "title": "获奖记录",
-      "href": "awards.html"
     }
   ],
   "months": [
     {
       "id": "month-6",
       "month": "6月",
-      "title": "迎夏记",
+      "title": "迎夏",
       "intro": "用影像记录夏日之前的风、光线和缓慢靠近的热。",
       "heroImage": "/assets/hero.png",
       "galleryTitle": "当月影展",
@@ -62,9 +58,9 @@
       "id": "month-5",
       "month": "5月",
       "title": "玩手作",
-      "intro": "这个月我们走进手作世界，在校友会收获指尖的乐趣。",
+      "intro": "5月我们走进手作世界，在校友会收获指尖的乐趣。",
       "heroImage": "/assets/hero.png",
-      "galleryTitle": "当月影展",
+      "galleryTitle": "玩手作影展照片",
       "gallery": [
         "/assets/hero.png",
         "/assets/hero.png",
@@ -79,25 +75,61 @@
         "/assets/hero.png",
         "/assets/hero.png"
       ],
+      "lifeTitle": "生活灵感",
+      "lifeCards": [
+        {
+          "title": "寻找非遗",
+          "label": "打卡爱生活的100件事之寻找非遗",
+          "summary": "走近传统技艺，在一针一线、一笔一划里看见时间留下的温度。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "兴趣手作",
+          "label": "打卡爱生活的100件事之兴趣手作",
+          "summary": "把日常兴趣做成可以触摸的作品，让灵感落在指尖。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "在大自然里DIY",
+          "label": "打卡爱生活的100件事之在大自然里DIY",
+          "summary": "带着材料走进自然，把叶片、光影和风都变成创作的一部分。",
+          "cover": "/assets/hero.png"
+        },
+        {
+          "title": "动手迎接夏天",
+          "label": "打卡爱生活的100件事之动手迎接夏天",
+          "summary": "用一次轻快的手作，把夏天来临前的期待装进口袋。",
+          "cover": "/assets/hero.png"
+        }
+      ],
+      "diaryTitle": "好好生活照片日记",
+      "diary": [
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png",
+        "/assets/hero.png"
+      ],
       "reviewTitle": "5月玩手作 · 精彩回顾",
       "features": [
         {
-          "title": "非遗手工",
+          "title": "寻找非遗",
           "summary": "走近传统技艺，感受手造的耐心与传承。",
           "cover": "/assets/hero.png"
         },
         {
-          "title": "闲趣手工",
+          "title": "兴趣手作",
           "summary": "慢下来，享受手作带来的治愈时光。",
           "cover": "/assets/hero.png"
         },
         {
-          "title": "户外手作",
+          "title": "在大自然里DIY",
           "summary": "走出教室，把手作灵感带进自然。",
           "cover": "/assets/hero.png"
         },
         {
-          "title": "居家手作",
+          "title": "动手迎接夏天",
           "summary": "在家也能创造美好，点亮日常生活。",
           "cover": "/assets/hero.png"
         }
@@ -171,8 +203,8 @@
     {
       "id": "month-2",
       "month": "2月",
-      "title": "归档",
-      "intro": "在新一轮拍摄前，整理旧影像、文章和项目线索。",
+      "title": "年味",
+      "intro": "在热闹的团圆气息里，记录节日、家人和生活里的年味。",
       "heroImage": "/assets/hero.png",
       "galleryTitle": "当月影展",
       "gallery": [
@@ -181,7 +213,7 @@
         "/assets/hero.png",
         "/assets/hero.png"
       ],
-      "reviewTitle": "2月归档 · 精彩回顾",
+      "reviewTitle": "2月年味 · 精彩回顾",
       "features": [
         {
           "title": "旧片整理",
