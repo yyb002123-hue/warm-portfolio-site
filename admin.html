@@ -19,6 +19,21 @@
         </div>
       </header>
 
+      <section class="admin-panel import-panel">
+        <div class="table-heading">
+          <div>
+            <h2>Excel 批量导入</h2>
+            <p class="panel-note">按模板填写后上传，可一次更新首页、侧边栏、月份文案、主图、生活灵感、影展照片和照片日记。</p>
+          </div>
+          <a class="button ghost" href="/templates/site-import-template.csv" download>下载模板</a>
+        </div>
+        <div class="import-actions">
+          <label class="file-label">选择 Excel 或 CSV 文件<input id="excel-import-file" type="file" accept=".xlsx,.csv"></label>
+          <button id="excel-import-button" class="button primary" type="button">导入并保存</button>
+        </div>
+        <pre id="import-preview" class="import-preview" aria-live="polite"></pre>
+      </section>
+
       <section class="admin-panel">
         <h2>首页内容</h2>
         <div class="form-grid">
@@ -34,26 +49,20 @@
 
       <section class="admin-panel">
         <div class="table-heading">
+          <div>
+            <h2>月份内容</h2>
+            <p class="panel-note">按每个月单独修改主图、介绍、生活灵感、影展照片和照片日记。</p>
+          </div>
+        </div>
+        <div id="months-editor" class="months-editor"></div>
+      </section>
+
+      <section class="admin-panel">
+        <div class="table-heading">
           <h2>影像作品</h2>
           <button id="add-work" class="button ghost" type="button">新增作品</button>
         </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>标题</th>
-                <th>类型</th>
-                <th>年份</th>
-                <th>简介</th>
-                <th>封面/上传</th>
-                <th>外部链接</th>
-                <th>精选</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody id="works-table"></tbody>
-          </table>
-        </div>
+        <div id="works-table" class="record-list"></div>
       </section>
 
       <section class="admin-panel">
@@ -61,22 +70,7 @@
           <h2>文章/随笔</h2>
           <button id="add-article" class="button ghost" type="button">新增文章</button>
         </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>标题</th>
-                <th>类型</th>
-                <th>日期</th>
-                <th>摘要</th>
-                <th>封面/上传</th>
-                <th>正文</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody id="articles-table"></tbody>
-          </table>
-        </div>
+        <div id="articles-table" class="record-list"></div>
       </section>
       <p id="save-status" class="save-status" role="status"></p>
     </main>
