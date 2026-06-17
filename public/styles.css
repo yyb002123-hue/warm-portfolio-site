@@ -353,6 +353,169 @@ textarea {
   border-radius: 4px;
 }
 
+.handcraft-month {
+  background: #fff46a;
+  border-bottom-color: #d5c12d;
+}
+
+.handcraft-month .month-hero {
+  min-height: 520px;
+  background: #fbef4f;
+}
+
+.handcraft-month .month-hero::after {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(192, 232, 68, 0.78) 0 9%, transparent 10%),
+    radial-gradient(circle at 82% 18%, rgba(255, 122, 52, 0.28) 0 8%, transparent 9%),
+    linear-gradient(90deg, rgba(34, 62, 24, 0.78), rgba(34, 62, 24, 0.28) 54%, rgba(34, 62, 24, 0.06));
+}
+
+.handcraft-month .month-hero-copy {
+  max-width: 820px;
+}
+
+.handcraft-month .month-hero-copy .eyebrow {
+  width: fit-content;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 253, 250, 0.72);
+  border-radius: 999px;
+  color: #fffef0;
+  background: rgba(26, 71, 37, 0.34);
+}
+
+.handcraft-month .month-hero h1 {
+  text-shadow: 0 4px 0 rgba(148, 126, 18, 0.32);
+}
+
+.handcraft-month .month-hero p:not(.eyebrow) {
+  max-width: 560px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #fffef0;
+  background: rgba(26, 71, 37, 0.44);
+}
+
+.handcraft-block {
+  max-width: 1180px;
+}
+
+.handcraft-heading {
+  display: grid;
+  gap: 4px;
+}
+
+.handcraft-heading .eyebrow {
+  width: fit-content;
+  margin: 0;
+  padding: 2px 9px;
+  border: 1px solid #4b6e28;
+  border-radius: 999px;
+  color: #264717;
+  background: #fffef0;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.handcraft-heading h2 {
+  color: #2c3d12;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 800;
+}
+
+.life-card-rail {
+  display: grid;
+  grid-auto-columns: minmax(260px, 34%);
+  grid-auto-flow: column;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 4px 2px 14px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.life-card {
+  position: relative;
+  min-height: 360px;
+  border: 2px solid #36551e;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1d4f35;
+  box-shadow: 8px 8px 0 rgba(54, 85, 30, 0.24);
+  scroll-snap-align: start;
+}
+
+.life-card-image {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.life-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 51, 33, 0.04), rgba(16, 51, 33, 0.88));
+}
+
+.life-card-copy {
+  position: absolute;
+  inset: auto 16px 16px;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  color: #fffef0;
+}
+
+.life-card-copy span {
+  width: fit-content;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: #284110;
+  background: #fff46a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.life-card-copy h3 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.life-card-copy p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.handcraft-month .monthly-gallery {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.handcraft-month .gallery-image,
+.photo-diary-image {
+  border: 2px solid #36551e;
+  border-radius: 8px;
+  background: #f8e84d;
+  box-shadow: 4px 4px 0 rgba(54, 85, 30, 0.18);
+}
+
+.photo-diary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.photo-diary-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 .detail-dialog {
   width: min(760px, calc(100vw - 34px));
   padding: 0 0 32px;
@@ -827,6 +990,18 @@ td textarea {
     line-height: 1.65;
   }
 
+  .handcraft-month .month-hero {
+    min-height: 440px;
+  }
+
+  .handcraft-month .month-hero-copy {
+    padding: 46px 18px 36px;
+  }
+
+  .handcraft-month .month-hero p:not(.eyebrow) {
+    padding: 8px 10px;
+  }
+
   .month-block {
     padding: 28px 14px 10px;
   }
@@ -842,6 +1017,26 @@ td textarea {
   .monthly-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
+  }
+
+  .life-card-rail {
+    grid-auto-columns: minmax(260px, 84%);
+    gap: 12px;
+  }
+
+  .life-card,
+  .life-card-image {
+    min-height: 320px;
+  }
+
+  .life-card-copy h3 {
+    font-size: 26px;
+  }
+
+  .handcraft-month .monthly-gallery,
+  .photo-diary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .gallery-image {
