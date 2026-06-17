@@ -5,6 +5,7 @@ $publicDir = Join-Path $root "public"
 $uploadsDir = Join-Path $publicDir "uploads"
 $dataFile = Join-Path $root "data\site-data.json"
 $backupFile = Join-Path $root "data\site-data.backup.json"
+$staticDataFile = Join-Path $publicDir "data\site-data.json"
 $port = if ($env:PORT) { [int]$env:PORT } else { 3000 }
 
 $mimeTypes = @{
@@ -53,6 +54,36 @@ function Save-UploadedImage($payload) {
   New-Item -ItemType Directory -Force -Path $uploadsDir | Out-Null
   [System.IO.File]::WriteAllBytes((Join-Path $uploadsDir $finalName), [Convert]::FromBase64String($match.Groups[2].Value))
   return "/uploads/$finalName"
+}
+
+function Backup-SiteData {
+  if (-not (Test-Path -LiteralPath $dataFile -PathType Leaf)) { return }
+
+  $stamp = Get-Date -Format "yyyyMMddHHmmss"
+  $timestampedBackup = Join-Path $root "data\site-data.backup-$stamp.json"
+
+  try {
+    Copy-Item -LiteralPath $dataFile -Destination $timestampedBackup -ErrorAction Stop
+  } catch {
+    try {
+      Copy-Item -LiteralPath $dataFile -Destination $backupFile -Force -ErrorAction Stop
+    } catch {
+      Write-Warning "Backup skipped: $($_.Exception.Message)"
+    }
+  }
+}
+
+function Save-SiteData([string]$json) {
+  $data = $json | ConvertFrom-Json
+  if ($null -eq $data.home -or $null -eq $data.months -or $null -eq $data.sidebarLinks -or $null -eq $data.works -or $null -eq $data.articles) {
+    throw "Invalid site data shape"
+  }
+
+  Backup-SiteData
+  $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+  [System.IO.File]::WriteAllText($dataFile, $json, $utf8NoBom)
+  New-Item -ItemType Directory -Force -Path (Split-Path -Parent $staticDataFile) | Out-Null
+  [System.IO.File]::WriteAllText($staticDataFile, $json, $utf8NoBom)
 }
 
 function Read-Request($stream) {
@@ -130,12 +161,7 @@ while ($true) {
     }
 
     if ($request.Path -eq "/api/site" -and $request.Method -eq "POST") {
-      $null = $request.Body | ConvertFrom-Json
-      if (Test-Path -LiteralPath $dataFile -PathType Leaf) {
-        Copy-Item -LiteralPath $dataFile -Destination $backupFile -Force
-      }
-      $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
-      [System.IO.File]::WriteAllText($dataFile, $request.Body, $utf8NoBom)
+      Save-SiteData $request.Body
       Write-Response $stream 200 "OK" (Text-Bytes '{"ok":true}') "application/json; charset=utf-8"
       continue
     }
