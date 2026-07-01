@@ -6,6 +6,7 @@ const path = require("path");
 
 const root = __dirname;
 const publicDir = path.join(root, "public");
+const adminDir = path.join(root, "admin");
 const uploadsDir = path.join(publicDir, "uploads");
 const dataFile = path.join(root, "data", "site-data.json");
 const backupFile = path.join(root, "data", "site-data.backup.json");
@@ -367,8 +368,49 @@ function serveStatic(req, res) {
   });
 }
 
+function serveLocalAdmin(req, res, requestedPath) {
+  const cleanPath = decodeURIComponent(requestedPath).replace(/^\/+/, "");
+  const filePath = path.normalize(path.join(adminDir, cleanPath));
+  const relativePath = path.relative(adminDir, filePath);
+
+  if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
+    send(res, 403, "Forbidden");
+    return true;
+  }
+
+  fs.readFile(filePath, (error, content) => {
+    if (error) {
+      send(res, 404, "Not found");
+      return;
+    }
+    const ext = path.extname(filePath).toLowerCase();
+    send(res, 200, content, mimeTypes[ext] || "application/octet-stream");
+  });
+  return true;
+}
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
+
+  if (url.pathname === "/health" && req.method === "GET") {
+    send(res, 200, JSON.stringify({ ok: true }), "application/json; charset=utf-8");
+    return;
+  }
+
+  if (url.pathname === "/admin.html" && req.method === "GET") {
+    serveLocalAdmin(req, res, "/admin.html");
+    return;
+  }
+
+  if (url.pathname === "/admin.js" && req.method === "GET") {
+    serveLocalAdmin(req, res, "/admin.js");
+    return;
+  }
+
+  if (url.pathname.startsWith("/templates/") && req.method === "GET") {
+    serveLocalAdmin(req, res, url.pathname);
+    return;
+  }
 
   if (url.pathname === "/api/site" && req.method === "GET") {
     fs.readFile(dataFile, "utf8", (error, content) => {

@@ -2,7 +2,7 @@ const state = {
   data: null
 };
 
-const fallbackImage = "assets/hero.png";
+const fallbackImage = "assets/hero-fallback.jpg";
 
 function imageUrl(value) {
   const url = String(value || "").trim();
@@ -28,6 +28,7 @@ function createImage(src, alt, className = "") {
   image.src = imageUrl(src);
   image.alt = alt || "";
   image.loading = "lazy";
+  image.decoding = "async";
   if (className) image.className = className;
   image.addEventListener("error", () => {
     image.src = fallbackImage;
@@ -61,12 +62,39 @@ function renderMonthNav(months) {
     const anchor = document.createElement("a");
     anchor.href = `#${month.id}`;
     anchor.className = index === 0 ? "active" : "";
+    anchor.dataset.monthId = month.id;
+    if (index === 0) anchor.setAttribute("aria-current", "true");
 
     const monthLabel = createElement("strong", "", month.month || "");
     const titleLabel = createElement("span", "", month.title || "");
     anchor.append(monthLabel, titleLabel);
     nav.appendChild(anchor);
   });
+}
+
+function setActiveMonthLink(activeId) {
+  const links = [...document.querySelectorAll(".month-nav a")];
+  let activeLink = null;
+
+  links.forEach((link) => {
+    const isActive = link.dataset.monthId === activeId;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "true");
+      activeLink = link;
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  if (activeLink) {
+    activeLink.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }
+}
+
+function jumpToMonthSection(target) {
+  const top = target.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo(0, top);
 }
 
 function renderGallery(month) {
@@ -85,6 +113,9 @@ function renderGallery(month) {
 }
 
 function renderHandcraftInspiration(month) {
+  const cards = month.lifeCards && month.lifeCards.length ? month.lifeCards : [];
+  if (!cards.length) return null;
+
   const section = createElement("section", "month-block handcraft-block");
   const heading = createElement("div", "month-heading handcraft-heading");
   heading.append(
@@ -93,7 +124,6 @@ function renderHandcraftInspiration(month) {
   );
 
   const rail = createElement("div", "life-card-rail");
-  const cards = month.lifeCards && month.lifeCards.length ? month.lifeCards : month.features || [];
 
   cards.forEach((card) => {
     const article = createElement("article", "life-card");
@@ -114,16 +144,17 @@ function renderHandcraftInspiration(month) {
 }
 
 function renderPhotoDiary(month) {
-  const section = createElement("section", "month-block handcraft-block");
-  const heading = createElement("div", "month-heading handcraft-heading");
+  if (!month.diary || !month.diary.length) return null;
+
+  const section = createElement("section", "month-block photo-diary-block");
+  const heading = createElement("div", "month-heading photo-diary-heading");
   heading.append(
     createElement("p", "eyebrow", "Photo Diary"),
     createElement("h2", "", month.diaryTitle || "好好生活照片日记")
   );
 
   const grid = createElement("div", "photo-diary-grid");
-  const images = month.diary && month.diary.length ? month.diary : (month.gallery || []).slice(0, 6);
-  images.forEach((src, index) => {
+  month.diary.forEach((src, index) => {
     grid.appendChild(createImage(src, `${month.diaryTitle || "照片日记"} ${index + 1}`, "photo-diary-image"));
   });
 
@@ -132,6 +163,9 @@ function renderPhotoDiary(month) {
 }
 
 function renderFeatureShowcase(month) {
+  const features = month.features || [];
+  if (!features.length) return null;
+
   const section = createElement("section", "month-block");
   const heading = createElement("div", "month-heading");
   heading.appendChild(createElement("h2", "", month.reviewTitle || `${month.month || ""}${month.title || ""} · 精彩回顾`));
@@ -139,7 +173,6 @@ function renderFeatureShowcase(month) {
   const layout = createElement("div", "feature-layout");
   const featureImages = createElement("div", "feature-covers");
   const featureList = createElement("div", "feature-list");
-  const features = month.features || [];
 
   features.forEach((feature, index) => {
     const coverCard = createElement("article", "feature-cover-card");
@@ -195,32 +228,53 @@ function renderMonths(months) {
     );
     hero.appendChild(heroCopy);
 
-    if (isHandcraftMonth) {
-      section.append(hero, renderHandcraftInspiration(month), renderGallery(month), renderPhotoDiary(month));
-    } else {
-      section.append(hero, renderGallery(month), renderFeatureShowcase(month));
-    }
+    [
+      hero,
+      renderHandcraftInspiration(month),
+      renderGallery(month),
+      renderPhotoDiary(month),
+      renderFeatureShowcase(month)
+    ].filter(Boolean).forEach((block) => section.appendChild(block));
     main.appendChild(section);
   });
 }
 
 function bindMonthNav() {
   const links = [...document.querySelectorAll(".month-nav a")];
-  const sections = links.map((link) => document.querySelector(link.getAttribute("href")));
-  let activeLink = links.find((link) => link.classList.contains("active"));
+  const sections = links.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
 
-  window.addEventListener("scroll", () => {
-    const current = sections.findLast((section) => section && section.getBoundingClientRect().top < 220);
-    links.forEach((link) => {
-      link.classList.toggle("active", current && link.getAttribute("href") === `#${current.id}`);
+  links.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+      event.preventDefault();
+      setActiveMonthLink(target.id);
+      jumpToMonthSection(target);
+      window.history.pushState(null, "", `#${target.id}`);
     });
+  });
 
-    const nextActiveLink = links.find((link) => link.classList.contains("active"));
-    if (nextActiveLink && nextActiveLink !== activeLink) {
-      activeLink = nextActiveLink;
-      nextActiveLink.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    }
-  }, { passive: true });
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActiveMonthLink(visible.target.id);
+    }, { rootMargin: "-28% 0px -55% 0px", threshold: [0.12, 0.32, 0.56] });
+
+    sections.forEach((section) => observer.observe(section));
+  } else {
+    window.addEventListener("scroll", () => {
+      const current = sections.findLast((section) => section.getBoundingClientRect().top < 220);
+      if (current) setActiveMonthLink(current.id);
+    }, { passive: true });
+  }
+
+  const hashTarget = window.location.hash ? document.querySelector(window.location.hash) : null;
+  if (hashTarget) {
+    setActiveMonthLink(hashTarget.id);
+    jumpToMonthSection(hashTarget);
+  }
 }
 
 async function loadSite() {

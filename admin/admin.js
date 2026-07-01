@@ -104,14 +104,14 @@ function imageCell(value, onChange) {
   const preview = document.createElement("img");
   preview.className = "image-preview";
   preview.alt = "图片预览";
-  preview.src = value || "/assets/hero.png";
+  preview.src = value || "/assets/hero-fallback.jpg";
 
   const input = document.createElement("input");
   input.type = "text";
   input.value = value || "";
   input.placeholder = "图片地址或上传后自动填入";
   input.addEventListener("input", () => {
-    preview.src = input.value || "/assets/hero.png";
+    preview.src = input.value || "/assets/hero-fallback.jpg";
     onChange(input.value);
     markDirty();
   });

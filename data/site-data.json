@@ -3,8 +3,8 @@
     "siteTitle": "影像校友会",
     "subtitle": "每月主题回顾",
     "heroTitle": "在缓慢的光里，整理影像与文字",
-    "heroText": "这里收录个人影像项目、散文式笔记与评论。页面先以样稿填充，之后可以在后台表格里替换为你的真实作品。",
-    "heroImage": "/assets/hero.png",
+    "heroText": "这里收录个人影像项目、散文式笔记与评论。页面先以样稿填充，之后可以替换为真实作品。",
+    "heroImage": "/assets/hero-fallback.jpg",
     "footerNote": "记录作品、放映与正在形成的想法。"
   },
   "sidebarLinks": [
@@ -26,32 +26,38 @@
       "heroImage": "/assets/hero-month-6.jpg",
       "galleryTitle": "当月影展",
       "gallery": [
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png"
+        "/assets/month-6-yingxia-01.jpg",
+        "/assets/month-6-yingxia-02.jpg",
+        "/assets/month-6-yingxia-03.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg"
       ],
       "reviewTitle": "6月迎夏记 · 精彩回顾",
       "features": [
         {
           "title": "夏日前奏",
           "summary": "在明亮的午后里整理新的影像线索。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-6-yingxia-01.jpg"
         },
         {
           "title": "窗边练习",
           "summary": "光线经过窗帘时，日常也有了清晰的边缘。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-6-yingxia-02.jpg"
         },
         {
           "title": "短片札记",
           "summary": "把拍摄现场留下的碎片重新放回文字里。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/hero-fallback.jpg"
         }
+      ],
+      "diaryTitle": "好好生活照片日记",
+      "diary": [
+        "/assets/month-6-yingxia-03.jpg",
+        "/assets/month-6-yingxia-01.jpg",
+        "/assets/month-6-yingxia-02.jpg"
       ]
     },
     {
@@ -62,18 +68,18 @@
       "heroImage": "/assets/hero-month-5.jpg",
       "galleryTitle": "玩手作影展照片",
       "gallery": [
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png"
+        "/assets/month-5-handcraft-01.jpg",
+        "/assets/month-5-handcraft-02.jpg",
+        "/assets/month-5-handcraft-03.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg"
       ],
       "lifeTitle": "生活灵感",
       "lifeCards": [
@@ -81,57 +87,57 @@
           "title": "寻找非遗",
           "label": "打卡爱生活的100件事之寻找非遗",
           "summary": "走近传统技艺，在一针一线、一笔一划里看见时间留下的温度。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-5-handcraft-01.jpg"
         },
         {
           "title": "兴趣手作",
           "label": "打卡爱生活的100件事之兴趣手作",
           "summary": "把日常兴趣做成可以触摸的作品，让灵感落在指尖。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-5-handcraft-02.jpg"
         },
         {
           "title": "在大自然里DIY",
           "label": "打卡爱生活的100件事之在大自然里DIY",
           "summary": "带着材料走进自然，把叶片、光影和风都变成创作的一部分。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-5-handcraft-03.jpg"
         },
         {
           "title": "动手迎接夏天",
           "label": "打卡爱生活的100件事之动手迎接夏天",
           "summary": "用一次轻快的手作，把夏天来临前的期待装进口袋。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/hero-fallback.jpg"
         }
       ],
       "diaryTitle": "好好生活照片日记",
       "diary": [
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png"
+        "/assets/month-5-handcraft-01.jpg",
+        "/assets/month-5-handcraft-02.jpg",
+        "/assets/month-5-handcraft-03.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg"
       ],
       "reviewTitle": "5月玩手作 · 精彩回顾",
       "features": [
         {
           "title": "寻找非遗",
           "summary": "走近传统技艺，感受手造的耐心与传承。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-5-handcraft-01.jpg"
         },
         {
           "title": "兴趣手作",
           "summary": "慢下来，享受手作带来的治愈时光。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-5-handcraft-02.jpg"
         },
         {
           "title": "在大自然里DIY",
           "summary": "走出教室，把手作灵感带进自然。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/hero-fallback.jpg"
         },
         {
           "title": "动手迎接夏天",
           "summary": "在家也能创造美好，点亮日常生活。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/hero-fallback.jpg"
         }
       ]
     },
@@ -143,32 +149,38 @@
       "heroImage": "/assets/hero-month-4.jpg",
       "galleryTitle": "当月影展",
       "gallery": [
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png"
+        "/assets/month-4-outing-01.jpg",
+        "/assets/month-4-outing-02.jpg",
+        "/assets/month-4-outing-03.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg"
       ],
       "reviewTitle": "4月去踏青 · 精彩回顾",
       "features": [
         {
           "title": "草地放映",
           "summary": "在自然光里重新观看一段影像。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-4-outing-01.jpg"
         },
         {
           "title": "春日采集",
           "summary": "收集颜色、声音和路上的短句。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-4-outing-02.jpg"
         },
         {
           "title": "同行记录",
           "summary": "把同行者的步伐留在画面边缘。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/hero-fallback.jpg"
         }
+      ],
+      "diaryTitle": "春日踏青照片日记",
+      "diary": [
+        "/assets/month-4-outing-03.jpg",
+        "/assets/month-4-outing-01.jpg",
+        "/assets/month-4-outing-02.jpg"
       ]
     },
     {
@@ -179,25 +191,31 @@
       "heroImage": "/assets/hero-month-3.jpg",
       "galleryTitle": "当月影展",
       "gallery": [
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png"
+        "/assets/month-3-spring-01.jpg",
+        "/assets/month-3-spring-02.jpg",
+        "/assets/month-3-spring-03.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg",
+        "/assets/hero-fallback.jpg"
       ],
       "reviewTitle": "3月寻春 · 精彩回顾",
       "features": [
         {
           "title": "春光练习",
           "summary": "寻找变化最轻的时刻。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-3-spring-01.jpg"
         },
         {
           "title": "影像笔记",
           "summary": "从一张照片延伸出一段文字。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-3-spring-02.jpg"
         }
+      ],
+      "diaryTitle": "寻春照片日记",
+      "diary": [
+        "/assets/month-3-spring-03.jpg",
+        "/assets/month-3-spring-01.jpg",
+        "/assets/month-3-spring-02.jpg"
       ]
     },
     {
@@ -208,23 +226,29 @@
       "heroImage": "/assets/hero-month-2.jpg",
       "galleryTitle": "当月影展",
       "gallery": [
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png",
-        "/assets/hero.png"
+        "/assets/month-2-newyear-01.jpg",
+        "/assets/month-2-newyear-02.jpg",
+        "/assets/month-2-newyear-03.jpg",
+        "/assets/hero-fallback.jpg"
       ],
       "reviewTitle": "2月年味 · 精彩回顾",
       "features": [
         {
           "title": "旧片整理",
           "summary": "给旧素材重新编号、命名与备注。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-2-newyear-01.jpg"
         },
         {
           "title": "文字回看",
           "summary": "把零散笔记整理成可以继续生长的文章。",
-          "cover": "/assets/hero.png"
+          "cover": "/assets/month-2-newyear-02.jpg"
         }
+      ],
+      "diaryTitle": "年味照片日记",
+      "diary": [
+        "/assets/month-2-newyear-03.jpg",
+        "/assets/month-2-newyear-01.jpg",
+        "/assets/month-2-newyear-02.jpg"
       ]
     }
   ],
@@ -235,7 +259,7 @@
       "category": "短片",
       "year": "2026",
       "summary": "一部关于旧屋、雨声和等待的短片。镜头停留在日常边缘，寻找时间慢下来之后的纹理。",
-      "cover": "/assets/hero.png",
+      "cover": "/assets/hero-fallback.jpg",
       "watchUrl": "https://example.com",
       "featured": true
     },
@@ -245,7 +269,7 @@
       "category": "影像随笔",
       "year": "2025",
       "summary": "从一间空房间开始，记录声音、布料和光线如何成为叙事的一部分。",
-      "cover": "/assets/hero.png",
+      "cover": "/assets/hero-fallback.jpg",
       "watchUrl": "https://example.com",
       "featured": true
     },
@@ -255,7 +279,7 @@
       "category": "实验影像",
       "year": "2025",
       "summary": "由信件、旧照片和城市夜路组成的影像练习，关于距离与误读。",
-      "cover": "/assets/hero.png",
+      "cover": "/assets/hero-fallback.jpg",
       "watchUrl": "https://example.com",
       "featured": false
     }
@@ -267,8 +291,8 @@
       "type": "影像笔记",
       "date": "2026-05-18",
       "excerpt": "不是所有温暖都来自色调。有时候它来自镜头停留的耐心，来自人物没有被催促的沉默。",
-      "cover": "/assets/hero.png",
-      "content": "这是一篇示例文章。你可以在后台把它改成自己的影像笔记、创作阐述或散文。"
+      "cover": "/assets/hero-fallback.jpg",
+      "content": "这是一篇示例文章。之后可以替换成自己的影像笔记、创作阐述或散文。"
     },
     {
       "id": "article-2",
@@ -276,7 +300,7 @@
       "type": "评论",
       "date": "2026-04-29",
       "excerpt": "走出放映厅时，最先留下来的不是情节，而是某个微弱的室内声响。",
-      "cover": "/assets/hero.png",
+      "cover": "/assets/hero-fallback.jpg",
       "content": "这里可以写影展观后感、影片评论或项目复盘。"
     },
     {
@@ -285,8 +309,8 @@
       "type": "散文",
       "date": "2026-03-12",
       "excerpt": "剪辑像是在桌面上重新摆放一段生活：留下、移走、等待某个位置变得准确。",
-      "cover": "/assets/hero.png",
-      "content": "文章正文可以很长，后台支持直接编辑。"
+      "cover": "/assets/hero-fallback.jpg",
+      "content": "文章正文可以很长，适合承载完整的创作记录。"
     }
   ]
 }

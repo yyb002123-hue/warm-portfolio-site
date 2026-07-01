@@ -1,8 +1,11 @@
-# 温室影像档案
+# 影像校友会 H5
 
-这是一个本地运行的中文作品集网站，适合展示影像作品和文章/随笔。内容可以在后台用表格编辑，不需要先学习数据库。
+这是一个用于展示校友会每月活动、照片、文章和作品的 H5 网站。本项目当前按“两层”使用：
 
-## 启动网站
+- 线上展示版：只放前台页面，给学员和校友浏览。
+- 本地维护版：在本地打开后台，编辑文字、图片、月份内容和表格导入。
+
+## 本地启动
 
 优先使用 Node.js：
 
@@ -10,7 +13,7 @@
 npm start
 ```
 
-如果 Node.js 暂时不可用，也可以用 Windows PowerShell 脚本：
+如果 Node.js 暂时不可用，也可以使用 PowerShell 脚本：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\Start-Site.ps1
@@ -19,70 +22,73 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\Start-Site.ps1
 启动后打开：
 
 - 前台：http://localhost:3000/
-- 后台：http://localhost:3000/admin.html
+- 本地后台：http://localhost:3000/admin.html
+- 健康检测：http://localhost:3000/health
 
-## 准备上线版本
+## 内容维护
 
-上线静态网站前，先同步一次内容数据：
+本地后台可以修改：
 
-```powershell
-npm run sync:data
-```
+- 首页标题、说明和入口
+- 每个月的主图、介绍、影展照片、照片日记、精彩回顾
+- 影像作品
+- 文章/随笔
+- Excel 或 CSV 批量导入
 
-线上版本会读取：
-
-```text
-public/data/site-data.json
-```
-
-## 免费上线到 GitHub Pages
-
-当前仓库的线上网站通过 `gh-pages` 分支发布。日常开发先提交到 `main`，确认要上线后，再把 `public/` 文件夹发布到 `gh-pages` 分支。
-
-每次本地后台改了内容，先运行：
-
-```powershell
-npm run sync:data
-```
-
-再提交到 `main`，然后把 `public/` 发布到 `gh-pages`。GitHub Pages 会自动部署 `gh-pages` 分支，部署成功后线上页面就会更新。
-
-## 修改内容
-
-推荐进入后台页面修改首页文字、作品、文章和图片。点击“保存修改”后，内容会写入：
+点击“保存修改”后，内容会写入：
 
 ```text
 data/site-data.json
+public/data/site-data.json
 ```
 
-每次保存前，服务器会自动把上一版内容备份到：
+每次保存前会自动备份上一版数据，备份文件在 `data/` 目录下。
 
-```text
-data/site-data.backup.json
+## 上线前检查
+
+上线前先同步数据：
+
+```powershell
+npm run sync:data
 ```
 
-这个备份文件不会提交到 Git，主要用于本地误操作后找回上一版。
+如果需要把当前网站内容重新导出成后台可下载的表格：
 
-上传的图片会保存在：
-
-```text
-public/uploads/
+```powershell
+npm run export:content
 ```
 
-后台表格里会自动填入类似 `/uploads/文件名.png` 的地址。
+再做公开版检查：
 
-## Excel 批量导入内容
+```powershell
+npm run check:public
+```
 
-后台页面提供“Excel 批量导入”入口。先下载模板，用 Excel 按固定列填写内容，再上传 `.xlsx` 或 `.csv` 文件。
+这个检查会确认：
 
-导入可更新：
+- `public/` 公开目录里没有后台页面和后台脚本
+- 前台页面没有后台入口
+- 公开数据可以正常读取
 
-- 首页文字
-- 侧边栏入口
-- 月份标题、介绍和主图
-- 生活灵感卡片
-- 影展照片
-- 照片日记
-- 精彩回顾
+## 发布原则
 
-导入前系统会提示确认，导入保存前会自动备份上一版 `data/site-data.json` 到 `data/site-data.backup.json`。
+当前建议第一阶段只发布 `public/` 里的前台展示内容。后台文件已经放在 `admin/` 目录，仅供本地服务器读取，不建议直接发布到公网。
+
+如果以后要把后台也放到公司服务器，需要先补齐：
+
+- 登录权限
+- 接口鉴权
+- 图片上传权限
+- 操作日志
+- 内容审核流程
+
+## 图片规范
+
+建议每张图片上传前先压缩：
+
+- 手机展示图：宽度 1200-1600px 通常够用
+- 单张图片建议控制在 300KB-800KB
+- 尽量使用 `.jpg` 或 `.webp`
+- 图片按月份命名，例如 `2026-06-活动名称-01.jpg`
+
+这样可以降低打开速度、流量和后续服务器成本。

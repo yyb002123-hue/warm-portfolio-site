@@ -2,6 +2,7 @@ $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $publicDir = Join-Path $root "public"
+$adminDir = Join-Path $root "admin"
 $uploadsDir = Join-Path $publicDir "uploads"
 $dataFile = Join-Path $root "data\site-data.json"
 $backupFile = Join-Path $root "data\site-data.backup.json"
@@ -13,6 +14,7 @@ $mimeTypes = @{
   ".css" = "text/css; charset=utf-8"
   ".js" = "application/javascript; charset=utf-8"
   ".json" = "application/json; charset=utf-8"
+  ".csv" = "text/csv; charset=utf-8"
   ".png" = "image/png"
   ".jpg" = "image/jpeg"
   ".jpeg" = "image/jpeg"
@@ -153,6 +155,11 @@ while ($true) {
   try {
     $request = Read-Request $stream
 
+    if ($request.Path -eq "/health" -and $request.Method -eq "GET") {
+      Write-Response $stream 200 "OK" (Text-Bytes '{"ok":true}') "application/json; charset=utf-8"
+      continue
+    }
+
     if ($request.Path -eq "/api/site" -and $request.Method -eq "GET") {
       $json = Get-Content -LiteralPath $dataFile -Raw -Encoding UTF8
       $json = $json.TrimStart([char]0xFEFF)
@@ -173,15 +180,17 @@ while ($true) {
       continue
     }
 
+    $isAdminAsset = $request.Path -eq "/admin.html" -or $request.Path -eq "/admin.js" -or $request.Path.StartsWith("/templates/")
+    $baseDir = if ($isAdminAsset) { $adminDir } else { $publicDir }
     $relativePath = [System.Uri]::UnescapeDataString($request.Path.TrimStart("/"))
     if ([string]::IsNullOrWhiteSpace($relativePath)) {
       $relativePath = "index.html"
     }
 
-    $fullPath = [System.IO.Path]::GetFullPath((Join-Path $publicDir $relativePath))
-    $publicRoot = [System.IO.Path]::GetFullPath($publicDir)
-    $publicRootWithSlash = $publicRoot.TrimEnd([System.IO.Path]::DirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
-    if (-not $fullPath.StartsWith($publicRootWithSlash)) {
+    $fullPath = [System.IO.Path]::GetFullPath((Join-Path $baseDir $relativePath))
+    $staticRoot = [System.IO.Path]::GetFullPath($baseDir)
+    $staticRootWithSlash = $staticRoot.TrimEnd([System.IO.Path]::DirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
+    if (-not $fullPath.StartsWith($staticRootWithSlash)) {
       Write-Response $stream 403 "Forbidden" (Text-Bytes "Forbidden") "text/plain; charset=utf-8"
       continue
     }
